@@ -1,4 +1,4 @@
-SAMPLES = ["A", "B", "C"]
+SAMPLES = ["A", "B"]
 
 rule all:
 	input: "results/plots/quals.svg"
