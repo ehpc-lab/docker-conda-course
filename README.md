@@ -21,7 +21,9 @@ NOTE: In some cases, when this software tries to start the service, it shows an 
 Download and install the “latest WSL2 Linux kernel”.
 
 Access PowerShell terminal as Administrator and execute the command:
+```
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
 
 Ensure that the software Docker Desktop is installed successfully.
 
@@ -29,22 +31,34 @@ Ensure that the software Docker Desktop is installed successfully.
 Access the “Get Docker Linux” website (https://docs.docker.com/get-docker/) and follow the instructions for installing.
 
 Update all Linux packages using the command line:
+```
 sudo apt-get update
+```
 
 Install required packages to the Docker program:
+```
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+```
 
 Create a software archive keyring file:
+```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
 
 Add Docker deb information in the source.list file.
+```
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 
 Update all packages again, including recently added ones.
+```
 sudo apt-get update
+```
 
 Install the Docker Desktop.
+```
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
 
 Select the geographic area and time zone to finish the installation process.
 
