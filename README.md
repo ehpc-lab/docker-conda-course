@@ -9,10 +9,12 @@ This protocol was created for creating and configuring Docker containers and Con
 ## Summary
 1. [What is necessary to run this protocol](#what-is-necessary-to-run-this-protocol)
 2. [Docker installation](#docker-installation)
-2.1. [For windows](#for-windows)
-2.2. [For Linux](#for-linux)
-2.3. [For macOS](#for-macos)
-3. [Creating a Docker container from scratch](#creating-a-docker-container-from-scratch)
+3. [For windows](#for-windows)
+4. [For Linux](#for-linux)
+5. [For macOS](#for-macos)
+6. [Creating a Docker container from scratch](#creating-a-docker-container-from-scratch)
+7. [Download a Linux official image from the Docker hub](#download-a-linux-official-image-from-the-docker-hub)
+8. [Minimum commands to manage Docker images and containers](#minimum-commands-to-manage-docker-images-and-containers)
 
 ## Docker installation
 
