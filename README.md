@@ -63,7 +63,9 @@ Open the Operating System terminal and execute the commands:
 ```
 docker pull continuumio/miniconda3
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
+```
 
+```
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
 (base) root@a95e814ebc80:/# cd /home/<specific folder>
 (base) root@a95e814ebc80:/# git clone https://github.com/ehpc-lab/docker-conda-course.git
