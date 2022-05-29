@@ -86,13 +86,26 @@ docker pull continuumio/miniconda3
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 ```
 
+Downloading mamba environment management
 ```
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
+```
+
+Downloading an example pipeline
+```
 (base) root@a95e814ebc80:/# cd /home/<specific folder>
 (base) root@a95e814ebc80:/# git clone https://github.com/ehpc-lab/docker-conda-course.git
 (base) root@a95e814ebc80:/# cd docker-conda-course/
+```
+
+Installing the tutorial environment
+```
 (base) root@a95e814ebc80:/# mamba env create -n tutorial --file environment.yaml
 (base) root@a95e814ebc80:/# conda activate tutorial
+```
+
+Executing the snakemake pipeline
+```
 (base) root@a95e814ebc80:/# snakemake --cores 19
 ```
 
