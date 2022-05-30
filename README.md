@@ -147,7 +147,7 @@ Copy the IMAGE ID information
 
 Creating and running Docker container from downloaded Docker image
 ```
-docker run -it -v <local machine path>:/home <IMAGE ID> /bin/bash
+docker run -it -d --name <CONTAINER NAME> -v <local machine path>:/home <IMAGE ID> /bin/bash
 ```
 
 List of Docker containers
@@ -194,6 +194,16 @@ Install packages using mamba
 ```
 conda install -c conda-forge mamba
 mamba install <PACKAGE NAME>
+```
+
+If your conda env is already activated, use:
+```
+mamba env update --file environment.yml
+```
+
+Or update a specific environment without activating it:
+```
+conda env update --name envname --file environment.yml
 ```
 
 Add channel
