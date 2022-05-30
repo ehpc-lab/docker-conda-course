@@ -203,7 +203,7 @@ mamba env update --file environment.yml
 
 Or update a specific environment without activating it:
 ```
-conda env update --name envname --file environment.yml
+mamba env update --name envname --file environment.yml
 ```
 
 Add channel
