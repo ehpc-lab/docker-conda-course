@@ -1,9 +1,9 @@
 # Bioinformatics analyses using Docker and Conda environment
 
-This protocol was created for creating and configuring Docker containers and Conda environment for bioinformatics analyses.
+This protocol was developed for creating and configuring Docker containers and Conda environment for bioinformatics analyses.
 
 ## What is necessary to run this protocol:
-- A machine running any operating system (such as Linux, Windows or macOS)
+- A machine running any operating system (such as Linux, Windows or macOS) and Docker App
 - Minimum or zero command-line knowledge
 
 ## Summary
@@ -19,11 +19,11 @@ This protocol was created for creating and configuring Docker containers and Con
 ## Docker installation
 
 ### For windows
-Access the “Get Docker” website (https://docs.docker.com/get-docker/), and click on get started. Find the installer for Docker Desktop For Windows. Download the files and install them locally on the computer.
+Access the “Get Docker” website (https://docs.docker.com/get-docker/), and click on the get started. Find the installer for Docker Desktop For Windows. Download the files and install them locally on the computer.
 
-After download, start the installation file (.exe) and keep the default parameters. Make sure that the two options “Install required Windows components for WSL 2” and “Add shortcut the desktop” are marked.
+After download, start the installation file (.exe) and keep the default parameters. Make sure that these two options “Install required Windows components for WSL 2” and “Add shortcut the desktop” are marked.
 
-NOTE: In some cases, when this software tries to start the service, it shows an error: “WSL installation is incomplete”. To figure out this error, access the website WSL2-Kernel (https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
+NOTE: In some cases, when this software tries to start the service, it shows an error: “WSL installation is incomplete”. To figure out this error, access the website WSL2-Kernel and follow up the instructions (https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
 
 Download and install the “latest WSL2 Linux kernel”.
 
@@ -32,7 +32,7 @@ Access PowerShell terminal as Administrator and execute the command:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-Ensure that the software Docker Desktop is installed successfully.
+Ensure that the software Docker Desktop is installed successfully. You will see an icon close to the date and clock.
 
 ### For Linux
 Access the “Get Docker Linux” website (https://docs.docker.com/get-docker/) and follow the instructions for installing.
@@ -68,6 +68,11 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 Select the geographic area and time zone to finish the installation process.
+
+To ensure the Docker App is working, typing the command at the terminal
+'''
+docker --servion
+'''
 
 ### For macOS
 Access the “Get Docker” website (https://docs.docker.com/get-docker/), click on “Docker Desktop for Mac”, and choose the Docker installation file for “Intel chip” or “Apple chip”.
@@ -110,3 +115,5 @@ Executing the snakemake pipeline
 ```
 
 ## Minimum commands to manage Docker images and containers
+![plot](./figures/docker.png)
+
