@@ -89,7 +89,7 @@ Open the Operating System terminal and execute the commands:
 ```
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 ```
-* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Installing Htop program on the Docker container
 ```
@@ -153,7 +153,7 @@ The Docker image can be downloaded using the Docker run command only.
 ```
 docker run -i -t --name CSBL -v <local machine directory path>:/home continuumio/miniconda3 /bin/bash
 ```
-* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Leaving from the Docker container
 ```
@@ -162,16 +162,16 @@ Leaving from the Docker container
 
 How to left a Docker container running in background? In your personal OS terminal, execute the docker run command using -d parameter.
 ```
-docker run -i -t -d --name CSBL -v <local machine path>:/home continuumio/miniconda3 /bin/bash
+docker run -i -t -d --name CSBL2 -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 docker container ls
-docker exec -i -t CSBL /bin/bash
+docker exec -i -t CSBL2 /bin/bash
 ```
-* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 How to stop a Docker container
 ```
 docker container stop (<CONTAINER ID> or <CONTAINER NAME>)
-docker container stop CSBL
+docker container stop CSBL2
 ```
 
 **Starting another Docker container from the same Docker image.**
@@ -183,9 +183,9 @@ docker images
 
 Copy the IMAGE ID information and paste on the Docker run command
 ```
-docker run -i -t -d --name CSBL -v <local machine path>:/home <IMAGE ID> /bin/bash
+docker run -i -t -d --name CSBL2 -v <local machine path>:/home <IMAGE ID> /bin/bash
 ```
-* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Check out the Docker container list.
 ```
@@ -197,6 +197,7 @@ Copy the CONTAINER ID or CONTAINER NAME information to start the container
 Run the existed Docker container
 ```
 docker exec -i -t (<CONTAINER ID> or <CONTAINER NAME>) /bin/bash
+docker exec -i -t CSBL2
 ```
 
 Login
