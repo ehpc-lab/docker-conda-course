@@ -87,8 +87,15 @@ Access the Docker hub website (https://hub.docker.com/), and look for “minicon
 
 Open the Operating System terminal and execute the commands:
 ```
-docker pull continuumio/miniconda3
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
+```
+* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+
+Installing Htop program on the Docker container
+```
+(base) root@a95e814ebc80:/# apt update
+(base) root@a95e814ebc80:/# apt upgrade
+(base) root@a95e814ebc80:/# apt install htop
 ```
 
 Downloading mamba environment management
@@ -134,39 +141,61 @@ Download Docker image
 ```
 docker pull <NAME>
 ```
+* The Docker image NAME is accessible in the Docker hub website.
 
 An example of docker pull command:
 ```
 docker pull continuumio/miniconda3
 ```
 
+The Docker image can be downloaded using the Docker run command only.
+```
+docker run -i -t --name CSBL -v <local machine directory path>:/home continuumio/miniconda3 /bin/bash
+```
+* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+
+Leaving from the Docker container
+```
+(base) root@a95e814ebc80:/# exit
+```
+
+How to left a Docker container running in background? In your personal OS terminal, execute the docker run command using -d parameter.
+```
+docker run -i -t -d --name CSBL -v <local machine path>:/home continuumio/miniconda3 /bin/bash
+docker container ls
+docker exec -i -t CSBL /bin/bash
+```
+* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
+
+How to stop a Docker container
+```
+docker container stop (<CONTAINER ID> or <CONTAINER NAME>)
+docker container stop CSBL
+```
+
+**Starting another Docker container from the same Docker image.**
+
 List of Docker images
 ```
 docker images
 ```
 
-Copy the IMAGE ID information
+Copy the IMAGE ID information and paste on the Docker run command
+```
+docker run -i -t -d --name CSBL -v <local machine path>:/home <IMAGE ID> /bin/bash
+```
+* <local machine path> => C:\Users\Andre.Nicolau\Documents\Projects
 
-Creating and running Docker container from downloaded Docker image
+Check out the Docker container list.
 ```
-docker run -it -d --name <CONTAINER NAME> -v <local machine path>:/home <IMAGE ID> /bin/bash
-```
-
-List of Docker containers
-```
-docker container list
+docker container ls
 ```
 
-Copy the CONTAINER ID information
+Copy the CONTAINER ID or CONTAINER NAME information to start the container
 
 Run the existed Docker container
 ```
-docker exec -it <CONTAINER ID> /bin/bash
-```
-
-Save a Docker container as an image and deposit on your personal Docker hub account
-```
-docker commit <CONTAINER ID> <USER>/<IMAGE NAME>
+docker exec -i -t (<CONTAINER ID> or <CONTAINER NAME>) /bin/bash
 ```
 
 Login
@@ -174,51 +203,70 @@ Login
 docker login --username=<USER>
 ```
 
+Save a Docker container as an image and deposit on your personal Docker hub account
+```
+docker commit <CONTAINER ID> <USER>/<IMAGE NAME>
+docker commit <CONTAINER ID> anicolau/CSBLCourse
+```
+
+Check out the new image from Docker container
+```
+docker images ls
+```
+  
 Tag and submit the new image for the Docker hub
 ```
 docker tag <NEW IMAGE ID> <USER>/<IMAGE NAME>
 docker push <USER>/<IMAGE NAME>
+  
+docker tag <NEW IMAGE ID> anicolau/CSBLCourse
+docker push anicolau/CSBLCourse
 ```
 
 ## Conda environment
 
 Create an environment
 ```
-conda create --name <ENV NAME>
+(base) root@a95e814ebc80:/# conda create --name <ENV NAME>
+(base) root@a95e814ebc80:/# conda create --name tutorial
 ```
 
 Activate environment
 ```
-conda activate <ENV NAME>
+(base) root@a95e814ebc80:/# conda activate <ENV NAME>
+(base) root@a95e814ebc80:/# conda activate tutorial
 ```
 
 Install packages using mamba
 ```
-conda install -c conda-forge mamba
-mamba install <PACKAGE NAME>
+(tutorial) root@a95e814ebc80:/# conda install -c conda-forge mamba
+(tutorial) root@a95e814ebc80:/# mamba init
+(tutorial) root@a95e814ebc80:/# mamba install <PACKAGE NAME>
+(tutorial) root@a95e814ebc80:/# mamba install -c bioconda bowtie2
 ```
 
 If your conda env is already activated, use:
 ```
-mamba env update --file environment.yml
+(tutorial) root@a95e814ebc80:/# mamba env update --file environment.yaml
 ```
 
 Or update a specific environment without activating it:
 ```
-mamba env update --name envname --file environment.yml
+(base) root@a95e814ebc80:/# mamba env update --name tutorial --file environment.yaml
 ```
 
 Add channel
 ```
-conda config --add channels new_channel
+(tutorial) root@a95e814ebc80:/# conda config --add channels new_channel
 ```
 
 Nested activation
 ```
-conda activate --stack <ENV NAME>
+(base) root@a95e814ebc80:/# conda activate --stack <ENV NAME>
 ```
 
 Conda deactivation
 ```
-conda deactivate
+(tutorial) root@a95e814ebc80:/# conda deactivate
+(base) root@a95e814ebc80:/#
 ```
