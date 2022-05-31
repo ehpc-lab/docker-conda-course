@@ -221,9 +221,31 @@ Tag and submit the new image for the Docker hub
 docker tag <NEW IMAGE ID> <USER>/<IMAGE NAME>
 docker push <USER>/<IMAGE NAME>
   
-docker tag <NEW IMAGE ID> anicolau/CSBLCourse
-docker push anicolau/CSBLCourse
+docker tag <NEW IMAGE ID> anicolau/csbl-course
+docker push anicolau/csbl-course
 ```
+
+Delete all container and images relates to continuumio/miniconda3
+
+Download your own Docker image from Docker hub
+```
+docker pull <USER>/<IMAGE NAME>
+docker pull anicolau/csbl-course
+```
+
+Then this image can be used for container and new analyses.
+
+If you working with sensitivity information, the Docker image from specific project could be saved locally. To save a image:
+```
+docker save anicolau/csbl-course > csbl-course.tar
+```
+
+To load the new image from local machine.
+```
+docker load --input csbl-course.tar
+```
+Then use this image for docker container and new analyses
+
 
 ## Conda environment
 
