@@ -83,7 +83,7 @@ NOTE: The software specific menu in the top status bar indicates that the softwa
 
 ## Creating a Docker container from scratch
 ### Download a Linux official image from the Docker hub
-Access the Docker hub website (https://hub.docker.com/), and look for “miniconda3” image.
+Access the Docker hub website (https://hub.docker.com/){:target="_blank"}, and look for “miniconda3” image.
 
 Open the Operating System terminal and execute the commands:
 ```
