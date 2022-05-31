@@ -103,7 +103,7 @@ Downloading mamba environment management
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
 ```
 
-Downloading an example pipeline
+Downloading an example pipeline (for more information about this snakemake pipeline, access here: https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)
 ```
 (base) root@a95e814ebc80:/# cd /home/<specific folder>
 (base) root@a95e814ebc80:/# git clone https://github.com/ehpc-lab/docker-conda-course.git
