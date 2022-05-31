@@ -128,6 +128,8 @@ The main elements of Docker are Dockerfile, Image and Container. For this tutori
 **What is a container in Docker?**
 <p>A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.</p>
 
+Check out more details about any Docker command accessing this documentation: https://docs.docker.com/
+
 Download Docker image
 ```
 docker pull <NAME>
