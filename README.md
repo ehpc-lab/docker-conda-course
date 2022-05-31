@@ -118,7 +118,8 @@ Installing the tutorial environment
 
 Executing the snakemake pipeline
 ```
-(base) root@a95e814ebc80:/# snakemake --cores 19
+(base) root@a95e814ebc80:/# snakemake --cores <number of cores>
+(base) root@a95e814ebc80:/# snakemake --cores 7
 ```
 
 ## Minimum commands to manage Docker images and containers
