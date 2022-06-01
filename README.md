@@ -4,7 +4,7 @@ This protocol was developed for creating and configuring Docker containers and C
 
 ## What is necessary to run this protocol:
 - A machine running any operating system (such as Linux, Windows or macOS) and Docker App
-- Minimum or zero command-line knowledge
+- A minimum command-line knowledge
 
 ## Summary
 1. [What is necessary to run this protocol](#what-is-necessary-to-run-this-protocol)
@@ -89,7 +89,7 @@ Open the Operating System terminal and execute the commands:
 ```
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 ```
-* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
+e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Installing Htop program on the Docker container
 ```
@@ -101,6 +101,7 @@ Installing Htop program on the Docker container
 Downloading mamba environment management
 ```
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
+(base) root@a95e814ebc80:/# mamba
 ```
 
 Downloading an example pipeline (for more information about this snakemake pipeline, access here: https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)
@@ -153,7 +154,7 @@ The Docker image can be downloaded using the Docker run command only.
 ```
 docker run -i -t --name CSBL -v <local machine directory path>:/home continuumio/miniconda3 /bin/bash
 ```
-* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
+e.g. * &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Leaving from the Docker container
 ```
@@ -166,7 +167,7 @@ docker run -i -t -d --name CSBL2 -v <local machine path>:/home continuumio/minic
 docker container ls
 docker exec -i -t CSBL2 /bin/bash
 ```
-* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
+e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 How to stop a Docker container
 ```
@@ -185,7 +186,7 @@ Copy the IMAGE ID information and paste on the Docker run command
 ```
 docker run -i -t -d --name CSBL2 -v <local machine path>:/home <IMAGE ID> /bin/bash
 ```
-* &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
+e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
 Check out the Docker container list.
 ```
