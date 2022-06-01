@@ -145,7 +145,7 @@ docker pull <NAME>
 ```
 * The Docker image NAME is accessible in the Docker hub website.
 
-An example of docker pull command:
+An example of the docker pull command:
 ```
 docker pull continuumio/miniconda3
 ```
@@ -166,6 +166,8 @@ How to left a Docker container running in background? In your personal OS termin
 docker run -i -t -d --name CSBL2 -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 docker container ls
 docker exec -i -t CSBL2 /bin/bash
+(base) root@a95e814ebc80:/# 
+(base) root@a95e814ebc80:/# exit
 ```
 e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
@@ -173,6 +175,12 @@ How to stop a Docker container
 ```
 docker container stop (<CONTAINER ID> or <CONTAINER NAME>)
 docker container stop CSBL2
+```
+
+How to start a Docker container
+```
+docker container start (<CONTAINER ID> or <CONTAINER NAME>)
+docker container start CSBL2
 ```
 
 **Starting another Docker container from the same Docker image.**
@@ -184,7 +192,7 @@ docker images
 
 Copy the IMAGE ID information and paste on the Docker run command
 ```
-docker run -i -t -d --name CSBL2 -v <local machine path>:/home <IMAGE ID> /bin/bash
+docker run -i -t -d --name CSBL3 -v <local machine path>:/home <IMAGE ID> /bin/bash
 ```
 e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
@@ -193,15 +201,37 @@ Check out the Docker container list.
 docker container ls
 ```
 
+To check out all containers are running or stopped, use the -a parameter:
+```
+docker container ls -a
+```
+
 Copy the CONTAINER ID or CONTAINER NAME information to start the container
 
 Run the existed Docker container
 ```
 docker exec -i -t (<CONTAINER ID> or <CONTAINER NAME>) /bin/bash
-docker exec -i -t CSBL2
+docker exec -i -t CSBL3
+(base) root@a95e814ebc80:/# 
+(base) root@a95e814ebc80:/# exit
 ```
 
-Login
+Removing Docker container and images
+```
+docker container rm (<CONTAINER ID> or <CONTAINER NAME>)
+docker container rm CSBL02
+```
+
+After removing all container related to specific image, its possible remove the image from Docker App
+```
+docker image rm (<IMAGE NAME> or <IMAGE ID>)
+```
+
+
+Saving the Docker container to a Docker image and then submit to Docker hub
+
+Login to your Docker hub account
+
 ```
 docker login --username=<USER>
 ```
@@ -209,7 +239,7 @@ docker login --username=<USER>
 Save a Docker container as an image and deposit on your personal Docker hub account
 ```
 docker commit <CONTAINER ID> <USER>/<IMAGE NAME>
-docker commit <CONTAINER ID> anicolau/CSBLCourse
+docker commit CSBL02 anicolau/csbl-ourse
 ```
 
 Check out the new image from Docker container
@@ -264,34 +294,34 @@ Activate environment
 
 Install packages using mamba
 ```
-(tutorial) root@a95e814ebc80:/# conda install -c conda-forge mamba
-(tutorial) root@a95e814ebc80:/# mamba init
-(tutorial) root@a95e814ebc80:/# mamba install <PACKAGE NAME>
-(tutorial) root@a95e814ebc80:/# mamba install -c bioconda bowtie2
+(tutorial) root@a95e814ebc80:/# conda deactivate
+(base) root@a95e814ebc80:/# conda install -c conda-forge mamba
+(base) root@a95e814ebc80:/# mamba init
+(base) root@a95e814ebc80:/# mamba install <PACKAGE NAME>
+(base) root@a95e814ebc80:/# mamba install -c bioconda bowtie2
 ```
 
-If your conda env is already activated, use:
+Create a conda environment and install packages from environment.yaml file
 ```
-(tutorial) root@a95e814ebc80:/# mamba env update --file environment.yaml
-```
-
-Or update a specific environment without activating it:
-```
-(base) root@a95e814ebc80:/# mamba env update --name tutorial --file environment.yaml
+(base) root@a95e814ebc80:/# mamba env create --name rnaseq --file environment.yaml
 ```
 
 Add channel
 ```
-(tutorial) root@a95e814ebc80:/# conda config --add channels new_channel
+(base) root@a95e814ebc80:/# conda config --add channels <CHANNEL NAME>
+(base) root@a95e814ebc80:/# conda config --add channels bioconda
+(base) root@a95e814ebc80:/# conda config --add channels conda-forge
 ```
 
 Nested activation
 ```
 (base) root@a95e814ebc80:/# conda activate --stack <ENV NAME>
+(base) root@a95e814ebc80:/# conda activate --stack rnaseq
+(rnaseq) root@a95e814ebc80:/# 
 ```
 
 Conda deactivation
 ```
-(tutorial) root@a95e814ebc80:/# conda deactivate
+(rnaseq) root@a95e814ebc80:/# conda deactivate
 (base) root@a95e814ebc80:/#
 ```
