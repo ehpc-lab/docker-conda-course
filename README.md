@@ -85,7 +85,7 @@ NOTE: The software specific menu in the top status bar indicates that the softwa
 ### Download a Linux official image from the Docker hub
 Access the Docker hub website (https://hub.docker.com/), and look for “miniconda3” image.
 
-Open the Operating System terminal and execute the commands:
+Open the Operating System terminal and execute the command:
 ```
 docker run -i -t -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 ```
@@ -101,7 +101,7 @@ Installing Htop program on the Docker container
 Downloading mamba environment management
 ```
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
-(base) root@a95e814ebc80:/# mamba
+(base) root@a95e814ebc80:/# mamba init
 ```
 
 Downloading an example pipeline (for more information about this snakemake pipeline, access here: https://snakemake.readthedocs.io/en/stable/tutorial/basics.html)
@@ -122,6 +122,12 @@ Executing the snakemake pipeline
 (base) root@a95e814ebc80:/# snakemake --cores <number of cores>
 (base) root@a95e814ebc80:/# snakemake --cores 7
 ```
+
+Closing the Docker container
+```
+(base) root@a95e814ebc80:/# exit
+```
+
 
 ## Minimum commands to manage Docker images and containers
 ![plot](./figures/docker.png)
@@ -156,7 +162,7 @@ docker run -i -t --name CSBL -v <local machine directory path>:/home continuumio
 ```
 e.g. * &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
-Leaving from the Docker container
+Closing the Docker container
 ```
 (base) root@a95e814ebc80:/# exit
 ```
@@ -171,7 +177,13 @@ docker exec -i -t CSBL2 /bin/bash
 ```
 e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
-How to stop a Docker container
+Even closing the connection between local machine and Docker container, the container will still running in background. To access the same container and work on that, execute the Docker exec command:
+```
+docker exec -i -t CSBL2 /bin/bash
+(base) root@a95e814ebc80:/# 
+```
+
+How to stop a Docker container, execute these command on the local OS terminal.
 ```
 docker container stop (<CONTAINER ID> or <CONTAINER NAME>)
 docker container stop CSBL2
@@ -192,7 +204,7 @@ docker images
 
 Copy the IMAGE ID information and paste on the Docker run command
 ```
-docker run -i -t -d --name CSBL3 -v <local machine path>:/home <IMAGE ID> /bin/bash
+docker run -i -t -d --name CSBL3 -v <local machine path>:/home <IMAGE ID or IMAGE NAME> /bin/bash
 ```
 e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
