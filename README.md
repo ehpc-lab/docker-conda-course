@@ -158,7 +158,7 @@ docker pull continuumio/miniconda3
 
 The Docker image can be downloaded using the Docker run command only.
 ```
-docker run -i -t --name CSBL -v <local machine directory path>:/home continuumio/miniconda3 /bin/bash
+docker run -i -t --name CSBL -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 ```
 e.g. * &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
