@@ -19,11 +19,11 @@ This protocol was developed for creating and configuring Docker containers and C
 ## Docker installation
 
 ### For windows
-Access the “Get Docker” website (https://docs.docker.com/get-docker/), and click on the get started. Find the installer for Docker Desktop For Windows. Download the files and install them locally on the computer.
+Access the “Get Docker” website (https://docs.docker.com/get-docker/), and click the Get Started button. Find the installer for Docker Desktop For Windows. Download the files and install them locally on the computer.
 
-After download, start the installation file (.exe) and keep the default parameters. Make sure that these two options “Install required Windows components for WSL 2” and “Add shortcut the desktop” are marked.
+After download, start the installation file (.exe) and keep the default parameters. Ensure that these options, “Install required Windows components for WSL 2” and “Add shortcut to the desktop” are marked.
 
-NOTE: In some cases, when this software tries to start the service, it shows an error: “WSL installation is incomplete”. To figure out this error, access the website WSL2-Kernel and follow up the instructions (https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
+NOTE: In some cases, when this software tries to start the service, it shows an error: “WSL installation is incomplete”. To figure out this error, access the website WSL2-Kernel and follow the instructions (https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
 
 Download and install the “latest WSL2 Linux kernel”.
 
@@ -35,14 +35,14 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 Ensure that the software Docker Desktop is installed successfully. You will see an icon close to the date and clock.
 
 ### For Linux
-Access the “Get Docker Linux” website (https://docs.docker.com/get-docker/) and follow the instructions for installing.
+Access the “Get Docker Linux” website (https://docs.docker.com/get-docker/) and follow the installation instructions.
 
 Update all Linux packages using the command line:
 ```
 sudo apt-get update
 ```
 
-Install required packages to the Docker program:
+Install the required packages to the Docker program:
 ```
 sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
 ```
@@ -69,9 +69,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 Select the geographic area and time zone to finish the installation process.
 
-To ensure the Docker App is working, typing the command at the terminal
+To ensure the Docker App is working, try the command at the terminal.
 '''
-docker --servion
+docker --version
 '''
 
 ### For macOS
@@ -79,7 +79,7 @@ Access the “Get Docker” website (https://docs.docker.com/get-docker/), click
 
 Execute the Docker.dmg file to open the installer, then drag the icon to the Applications folder. Localize and execute the Docker.app in the Applications folder to start the program.
 
-NOTE: The software specific menu in the top status bar indicates that the software is running and that it is accessible from a terminal.
+NOTE: The software-specific menu in the top status bar indicates that the software is running and accessible from a terminal.
 
 ## Creating a Docker container from scratch
 ### Download a Linux official image from the Docker hub
@@ -98,7 +98,7 @@ Installing Htop program on the Docker container
 (base) root@a95e814ebc80:/# apt install htop
 ```
 
-Downloading mamba environment management
+Downloading the mamba environment management
 ```
 (base) root@a95e814ebc80:/# conda install -c conda-forge mamba
 (base) root@a95e814ebc80:/# mamba init
@@ -117,7 +117,7 @@ Installing the tutorial environment
 (base) root@a95e814ebc80:/# conda activate tutorial
 ```
 
-Executing the snakemake pipeline
+Executing the Snakemake pipeline
 ```
 (base) root@a95e814ebc80:/# snakemake --cores <number of cores>
 (base) root@a95e814ebc80:/# snakemake --cores 7
@@ -132,13 +132,13 @@ Closing the Docker container
 ## Minimum commands to manage Docker images and containers
 ![plot](./figures/docker.png)
 
-The main elements of Docker are Dockerfile, Image and Container. For this tutorial, we do not use the Dockerfile and how to build up to it for the moment. 
+The main elements of Docker are Dockerfile, Image and Container. For this tutorial, we do not use the Dockerfile and how to build up to it. 
 
 **What is a Dockerfile?**
-<p>A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession. This page describes the commands you can use in a Dockerfile</p>
+<p>A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build, users can create an automated build that executes several command-line instructions in succession. This page describes the commands you can use in a Dockerfile</p>
 
 **What is a Docker image?**
-<p>A Docker image is a file used to execute code in a Docker container. Docker images act as a set of instructions to build a Docker container, like a template. Docker images also act as the starting point when using Docker. An image is comparable to a snapshot in virtual machine (VM) environments.</p>
+<p>A Docker image is a file that executes code in a Docker container. Docker images act as a set of instructions to build a Docker container, like a template. Docker images also act as the starting point when using Docker. An image is comparable to a snapshot in virtual machine (VM) environments.</p>
 
 **What is a container in Docker?**
 <p>A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.</p>
@@ -149,7 +149,7 @@ Download Docker image
 ```
 docker pull <NAME>
 ```
-* The Docker image NAME is accessible in the Docker hub website.
+* The Docker image NAME is accessible on the Docker hub website.
 
 An example of the docker pull command:
 ```
@@ -167,7 +167,7 @@ Closing the Docker container
 (base) root@a95e814ebc80:/# exit
 ```
 
-How to left a Docker container running in background? In your personal OS terminal, execute the docker run command using -d parameter.
+How do you leave a Docker container running in the background? In your personal OS terminal, execute the docker run command using -d parameter.
 ```
 docker run -i -t -d --name CSBL2 -v <local machine path>:/home continuumio/miniconda3 /bin/bash
 docker container ls
@@ -177,13 +177,13 @@ docker exec -i -t CSBL2 /bin/bash
 ```
 e.g. &lt;local machine path&gt; => C:\Users\Andre.Nicolau\Documents\Projects
 
-Even closing the connection between local machine and Docker container, the container will still running in background. To access the same container and work on that, execute the Docker exec command:
+Even closing the connection between the local machine and the Docker container, the container will still be running in the background. To access the same container and work on that, execute the Docker exec command:
 ```
 docker exec -i -t CSBL2 /bin/bash
 (base) root@a95e814ebc80:/# 
 ```
 
-How to stop a Docker container, execute these command on the local OS terminal.
+How to stop a Docker container, execute this command on the local OS terminal.
 ```
 docker container stop (<CONTAINER ID> or <CONTAINER NAME>)
 docker container stop CSBL2
@@ -202,7 +202,7 @@ List of Docker images
 docker images
 ```
 
-Copy the IMAGE ID information and paste on the Docker run command
+Copy the IMAGE ID information and paste it on the Docker run command.
 ```
 docker run -i -t -d --name CSBL3 -v <local machine path>:/home <IMAGE ID or IMAGE NAME> /bin/bash
 ```
@@ -213,17 +213,17 @@ Check out the Docker container list.
 docker container ls
 ```
 
-To check out all containers are running or stopped, use the -a parameter:
+To check out if all containers are running or stopped, use the -a parameter:
 ```
 docker container ls -a
 ```
 
-Copy the CONTAINER ID or CONTAINER NAME information to start the container
+Copy the CONTAINER ID or CONTAINER NAME information to start the container.
 
-Run the existed Docker container
+Run the existing Docker container.
 ```
 docker exec -i -t (<CONTAINER ID> or <CONTAINER NAME>) /bin/bash
-docker exec -i -t CSBL3
+docker exec -i -t CSBL3 /bin/bash
 (base) root@a95e814ebc80:/# 
 (base) root@a95e814ebc80:/# exit
 ```
@@ -234,13 +234,13 @@ docker container rm (<CONTAINER ID> or <CONTAINER NAME>)
 docker container rm CSBL02
 ```
 
-After removing all container related to specific image, its possible remove the image from Docker App
+After removing all containers related to specific image, it is possible remove the image from the Docker App.
 ```
 docker image rm (<IMAGE NAME> or <IMAGE ID>)
 ```
 
 
-Saving the Docker container to a Docker image and then submit to Docker hub
+Saving the Docker container to a Docker image and then submitting it to Docker hub.
 
 Login to your Docker hub account
 
@@ -248,13 +248,13 @@ Login to your Docker hub account
 docker login --username=<USER>
 ```
 
-Save a Docker container as an image and deposit on your personal Docker hub account
+Save a Docker container as an image and deposit it on your personal Docker hub account.
 ```
 docker commit <CONTAINER ID> <USER>/<IMAGE NAME>
 docker commit CSBL02 anicolau/csbl-ourse
 ```
 
-Check out the new image from Docker container
+Check out the new image from Docker container.
 ```
 docker images ls
 ```
@@ -268,17 +268,17 @@ docker tag <NEW IMAGE ID> anicolau/csbl-course
 docker push anicolau/csbl-course
 ```
 
-Delete all container and images relates to continuumio/miniconda3
+Delete all containers and images related to continuumio/miniconda3
 
-Download your own Docker image from Docker hub
+Download your own Docker image from the Docker hub.
 ```
 docker pull <USER>/<IMAGE NAME>
 docker pull anicolau/csbl-course
 ```
 
-Then this image can be used for container and new analyses.
+Then, this image can be used for container and new analyses.
 
-If you working with sensitivity information, the Docker image from specific project could be saved locally. To save a image:
+If you working with sensitivity information, the Docker image from specific project could be saved locally. To save an image:
 ```
 docker save anicolau/csbl-course > csbl-course.tar
 ```
